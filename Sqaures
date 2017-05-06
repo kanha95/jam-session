@@ -1,0 +1,29 @@
+#include <cstdio>
+#include <algorithm>
+using namespace std;
+
+const int MOD = 1000000007;
+
+void proc(int caseidx) {
+	int n, m;
+	scanf("%d %d", &n, &m);
+	int v = min(n, m);
+	int ans = 0;
+	for (int i = 1; i < min(n, m); ++i) {
+		int cnt = (n - i) * (m - i);
+		ans += (long long)cnt * i;
+		ans %= MOD;
+	}
+	printf("Case #%d: %d\n", caseidx, ans);
+}
+
+int main() {
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+	int t;
+	scanf("%d", &t);
+	for (int i = 1; i <= t; ++i) {
+		proc(i);
+	}
+	return 0;
+}
